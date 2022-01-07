@@ -3,7 +3,7 @@ Aplicación de reconocimiento facial haciendo uso de python y OpenCV.
 
 
 ### Configuración del proyecto
-Se debe tener instalado node js
+Se debe tener instalado node js y python.
 
 
 ### Instalación de librerías
