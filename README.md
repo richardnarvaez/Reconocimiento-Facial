@@ -13,13 +13,13 @@ Se debe tener instalado node js y python.
 
 
 ### Inicialización del proyecto
-####Reconocimiento facial
+#### Reconocimiento facial
 Servidor
 1. npm run start
 Cliente
 2. python webcamv3.py
 
-####Identificación facial
+#### Identificación facial
 1. python clienteReconocimiento.py
 2. python learningReconocimiento.py
 3. python servidorReconocimiento.py
