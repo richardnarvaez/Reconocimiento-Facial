@@ -1,12 +1,13 @@
 module.exports = {
    collectCoverageFrom: [
-      '**/*.{js,jsx,ts,tsx}',
-      '!**/*.d.ts',
-      '!**/node_modules/**',
-      '!**/config/**',
-      '!**/settings/**',
-      '!**/__test__/**',
-      '!**/*.config.{js,jsx,ts,tsx}',
+      'src/**/*.{js,jsx}',
+      //   '**/*.{js,jsx,ts,tsx}',
+      //   '!**/*.d.ts',
+      //   '!**/node_modules/**',
+      //   '!**/config/**',
+      //   '!**/settings/**',
+      //   '!**/__test__/**',
+      //   '!**/*.config.{js,jsx,ts,tsx}',
    ],
    coverageThreshold: {
       global: {

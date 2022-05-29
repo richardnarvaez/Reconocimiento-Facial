@@ -1,0 +1,41 @@
+name: FACIALRECOGNITION API NODE CI - PRODUCTION
+
+on:
+  push:
+    branches: [disabled]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: BUILD - APP - PROD
+    
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v3
+        # with:
+        #   ref: master
+        #   path: prod
+
+      - name: Install YARN
+        # working-directory: prod
+        run: yarn
+#         run: npm ci
+      # - name: Build SERVER
+      #   working-directory: prod
+      #   run: npm run server:build
+
+  test:
+    needs: [build]
+    name: TEST - APP - PROD
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: RUN TEST
+        run: |
+          yarn test
