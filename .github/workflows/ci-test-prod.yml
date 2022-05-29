@@ -25,17 +25,21 @@ jobs:
       - name: Install YARN
         # working-directory: prod
         run: yarn
+
+      - name: RUN TEST
+        run: |
+          yarn test
 #         run: npm ci
       # - name: Build SERVER
       #   working-directory: prod
       #   run: npm run server:build
 
-  test:
-    needs: [build]
-    name: TEST - APP - PROD
-    runs-on: ubuntu-latest
+  # test:
+  #   needs: [build]
+  #   name: TEST - APP - PROD
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: RUN TEST
-        run: |
-          yarn test
+  #   steps:
+  #     - name: RUN TEST
+  #       run: |
+  #         yarn test
