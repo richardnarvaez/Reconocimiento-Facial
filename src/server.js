@@ -1,5 +1,11 @@
-const srv = require('./app')
+const { server } = require('./app')
 
-srv.server.listen(3000, () => {
-   console.log('>> Listening on *:3000')
-})
+const startServer = async (port) => {
+   server.listen(port, () => {
+      console.log('>> Listening on *:3000')
+   })
+}
+
+startServer(3000)
+
+module.exports = { startServer }

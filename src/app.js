@@ -21,10 +21,10 @@ app.get('/conectar', (req, res) => {
 
 //Desconectar servidor
 app.get('/desconectar', (req, res) => {
-   socket.on('disconnect', () => {
-      console.log('user disconnected')
-   })
+   //    socket.on('disconnect', () => {
+   //       console.log('user disconnected')
+   //    })
    res.send('<h1>Desconectado</h1>')
 })
 
-module.exports = { app, server }
+module.exports = { app, server, io }
