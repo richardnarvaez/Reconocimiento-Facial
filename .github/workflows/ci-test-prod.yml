@@ -7,21 +7,19 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  testjs:
     name: TEST - JS APP - PROD
-    
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x]
 
     steps:
       - name: CHECKOUT
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+        run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Install YARN
         run: yarn
@@ -30,11 +28,14 @@ jobs:
         run: |
           yarn test
 
-  test:
-    needs: [build]
+  testpy:
+    needs: [testjs]
     name: TEST - PY APP - PROD
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [16.x]
+        
     steps:
       - name: RUN TEST
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+        run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
