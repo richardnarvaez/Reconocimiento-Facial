@@ -63,4 +63,4 @@ jobs:
           pytest 
       - name: Test with UnitTest
         run: |
-          python reconocimiento/f1.1.py
+          python /reconocimiento/f1.1.py
