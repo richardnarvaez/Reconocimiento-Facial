@@ -14,7 +14,6 @@ def Ingresarnombre():
 	nombre= input()
 	return nombre
 
-
 def Crearcarpeta(personName):
 	dato = os.path.dirname(__file__)
 	rutaimagenes = os.path.join(dato,'img')
