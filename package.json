@@ -4,6 +4,12 @@
     "socket.io": "^4.4.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node src/server.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0",
+    "supertest": "^6.2.3"
   }
 }

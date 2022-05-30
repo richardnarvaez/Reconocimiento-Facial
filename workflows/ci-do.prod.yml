@@ -1,0 +1,103 @@
+name: UBRAND API NODE CI - PRODUCTION
+
+on:
+  push:
+    branches: [disabled]
+  # pull_request:
+  #   branches: [ master ]
+
+jobs:
+  build:
+    name: BUILD - APP - PROD
+    
+    runs-on: [self-hosted]
+
+    # strategy:
+    #   matrix:
+    #     node-version: [10.x]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+          path: prod
+
+      - name: ENV
+        working-directory: prod
+        run: |
+          touch .env
+          echo "Verifcando"
+          git log
+
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      # - name: Use Node.js ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v2.1.5
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+      - name: ENV
+        working-directory: prod
+        run: |
+          touch .env
+          echo SECRET=${{ secrets.SECRET }} >> .env
+          echo REFRESH_SECRET=${{ secrets.REFRESH_SECRET }} >> .env
+          echo APISENGRID_KEY=${{ secrets.APISENGRID_KEY }} >> .env
+          echo DB_PSQL_DATABASE=${{ secrets.DB_PSQL_DATABASE }} >> .env
+          echo DB_PSQL_HOST=${{ secrets.DB_PSQL_HOST }} >> .env
+          echo DB_PSQL_PASSWORD=${{ secrets.DB_PSQL_PASSWORD }} >> .env
+          echo DB_PSQL_PORT=${{ secrets.DB_PSQL_PORT }} >> .env
+          echo DB_PSQL_USER=${{ secrets.DB_PSQL_USER }} >> .env
+
+      - name: Install NPM
+        working-directory: prod
+        run: yarn
+#         run: npm ci
+      # - name: Run TEST
+      #   working-directory: prod/api
+      #   run: npm test
+      - name: Build SERVER
+        working-directory: prod
+        run: npm run server:build
+
+  env:
+    needs: [build]
+    name: MOVE - APP - PROD
+    runs-on: self-hosted
+
+    steps:
+      - name: Move to PROD
+        working-directory: prod
+        run: |
+          echo "Empieza el despliegue..."
+          echo "------------------------"
+          cp .env dist_server/server
+
+    # steps:
+    #   - name: Move to PROD
+    #     run: |
+    #       ls
+    #       rm -r ../prod/
+    #       mkdir -p ../prod/
+    #       cp -r ./ ../prod
+
+      # - name: Restart PM2
+      #   run: pm2 reload ../prod/ecosystem.config.js --only SERVER-PROD
+  
+  deploy:
+    needs: [build, env]
+    name: DEPLOY - APP - PROD
+    runs-on: self-hosted
+
+    steps:
+      - name: Move to PROD
+        run: |
+          echo "Empieza el despliegue..."
+          echo "------------------------"
+      - name: PM2 to PROD
+        working-directory: prod
+        run: |
+          echo "Empieza el despliegue..."
+          pm2 reload ecosystem.config.js --only UB-PROD --env production
+          pm2 status
