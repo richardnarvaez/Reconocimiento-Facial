@@ -24,8 +24,8 @@ def obtencionImagenes(datos):
 
 class test_comrpobar_direccion(unittest.TestCase):
   def entrada_dato_none(self):
-   selft.assertEqual(obtencionImagenes(None),None)
-   selft.assertEqual(obtencionImagenes(__file__),os.path.join(dato,'img'))       
+   self.assertEqual(obtencionImagenes(None),None)
+   self.assertEqual(obtencionImagenes(__file__),os.path.join(dato,'img'))       
     
   
 
