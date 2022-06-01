@@ -1,4 +1,5 @@
 
+
 import unittest
 import cv2
 import os
@@ -27,6 +28,7 @@ def Crearcarpeta(personName):
 	else:
 		print(" CARPETA YA EXITE  ")
 		return personPath
+
 	personName.assertTrue(personPath)
 
 
