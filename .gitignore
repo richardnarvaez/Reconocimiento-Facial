@@ -26,7 +26,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -40,3 +41,5 @@ Icon
 #libraries
 env
 node_modules
+
+**/__test__/coverage
