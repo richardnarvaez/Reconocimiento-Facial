@@ -3,6 +3,7 @@ cpf = 0
 resp = "cp"
 
 def recognize(face_recognizer, cap, faceClassif, socket,imagePaths):
+    global resp
     while True:
         ret,frame = cap.read()
         if ret == False: 
