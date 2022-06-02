@@ -2,6 +2,7 @@ import cv2
 resp = "cp"
 
 def recognize(face_recognizer, cap, faceClassif, socket,imagePaths):
+    global resp
     while True:
         ret,frame = cap.read()
         if ret == False: 
@@ -37,7 +38,8 @@ def recognize(face_recognizer, cap, faceClassif, socket,imagePaths):
                 break
 
         cv2.imshow('frame',frame)
-        k = cv2.waitKey(1)
+        # k = cv2.waitKey(1)
+        k = 27
         if k == 27:
             break
     cv2.destroyAllWindows()

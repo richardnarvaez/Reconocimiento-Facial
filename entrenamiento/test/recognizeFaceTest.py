@@ -2,6 +2,7 @@ import cv2
 resp = "cp"
 
 def recognize(face_recognizer, cap, faceClassif, socket,imagePaths):
+    global resp
     while True:
         ret,frame = cap.read()
         if ret == False: 
@@ -32,7 +33,8 @@ def recognize(face_recognizer, cap, faceClassif, socket,imagePaths):
                 print("message received with    No es la persona registrada")
 
         cv2.imshow('frame',frame)
-        k = cv2.waitKey(1)
+        # k = cv2.waitKey(1)
+        k=27
         if k == 27: #esc key
             break
     cv2.destroyAllWindows()
