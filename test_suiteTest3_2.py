@@ -5,7 +5,7 @@ import recognizeFaceTest2
 import recognizeFaceTest3
 import socketio
 
-# socket = socketio.Client()
+socket = socketio.Client()
 
 def test_testCase1():
     cap = cv2.VideoCapture()
