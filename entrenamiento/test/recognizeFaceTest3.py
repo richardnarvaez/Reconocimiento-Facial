@@ -37,7 +37,8 @@ def recognize(face_recognizer, cap, faceClassif, socket,imagePaths):
                 break
 
         cv2.imshow('frame',frame)
-        k = cv2.waitKey(1)
+        # k = cv2.waitKey(1)
+        k=27
         if k == 27:
             if(cpf == 0):
                 resp =  "cp4"
