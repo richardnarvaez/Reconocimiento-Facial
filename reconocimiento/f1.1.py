@@ -35,7 +35,7 @@ def Crearcarpeta(personName):
 class testCrearCarpteta(unittest.TestCase):
 	def	testCrearCarpte (selft):
 		selft.assertEqual(Crearcarpeta('Inge Rosero'),os.path.join(dato,'img')+'/Inge Rosero')
-		selft.assertEqual(Crearcarpeta('Inge Rosero'),os.path.join(dato,'img')+'/Inge Rosero')
+		selft.assertEqual(Crearcarpeta('Daniel Molina'),os.path.join(dato,'img')+'/Daniel Molina')
 		
 if __name__ == '__main__': 
 	unittest.main()
