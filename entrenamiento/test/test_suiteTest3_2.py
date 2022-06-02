@@ -6,7 +6,7 @@ import recognizeFaceTest3
 import socketio
 
 socket = socketio.Client()
-
+# Pruebas de Willy
 def test_testCase1():
     cap = cv2.VideoCapture()
     faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontalface_default.xml')
