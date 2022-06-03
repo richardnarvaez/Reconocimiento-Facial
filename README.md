@@ -26,3 +26,5 @@ Cliente
 1. python clienteReconocimiento.py
 2. python learningReconocimiento.py
 3. python servidorReconocimiento.py
+
+Participantes:
