@@ -1,4 +1,4 @@
-# Reconocimiento-Facial (*Software en Tiempo Real*)
+# Reconocimiento-Facial (*Software en Tiempo Real*).
 Aplicación de reconocimiento facial haciendo uso de python y OpenCV.
 
 
